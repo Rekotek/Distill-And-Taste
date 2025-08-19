@@ -339,7 +339,26 @@
         border-radius: 12px;
       }
     </style>
-  </head>
+  
+    <!-- Images served via Unsplash Source API (randomized by query). Consider adding photographer credits if fixed images are later selected. -->
+<style>
+/* --- image loading helpers --- */
+.img-frame{background:linear-gradient(90deg,#2a2a2a 0%,#333 50%,#2a2a2a 100%);background-size:200% 100%;animation:shimmer 1.2s infinite;display:block;overflow:hidden}
+.img-frame img{width:100%;height:100%;object-fit:cover;display:block}
+@keyframes shimmer{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+.aspect-16x9{aspect-ratio:16/9}
+.aspect-4x3{aspect-ratio:4/3}
+.aspect-1x1{aspect-ratio:1/1}
+</style><style>
+/* hero image fit */
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:center}
+</style><style>
+/* ensure hero/social images cover container */
+.hero-img{width:100%;height:100%;object-fit:cover;object-position:center}
+
+.obj-cover{width:100%;height:100%;object-fit:cover;object-position:center}
+</style><!-- Hero image: Wikimedia Commons (CC BY-SA 2.0) Fabrizio Sciami -->
+</head>
   <body>
     <header class="site-header">
       <div class="container nav">
@@ -380,9 +399,19 @@
             aria-label="Иллюстрация: компания на дегустации"
           >
             <img
-              src="https://images.unsplash.com/photo-546005055-621620336a5f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Красные острые перцы"
-            />
+  src="https://images.pexels.com/photos/16762635/pexels-photo-16762635.jpeg?auto=compress&cs=tinysrgb&w=2000"
+  srcset="https://images.pexels.com/photos/16762635/pexels-photo-16762635.jpeg?auto=compress&cs=tinysrgb&w=800 800w,
+          https://images.pexels.com/photos/16762635/pexels-photo-16762635.jpeg?auto=compress&cs=tinysrgb&w=1200 1200w,
+          https://images.pexels.com/photos/16762635/pexels-photo-16762635.jpeg?auto=compress&cs=tinysrgb&w=1600 1600w,
+          https://images.pexels.com/photos/16762635/pexels-photo-16762635.jpeg?auto=compress&cs=tinysrgb&w=2000 2000w"
+  sizes="(min-width:1024px) 900px, 100vw"
+  alt="Культурная компания за праздничным столом, тост на дегустации"
+  loading="eager"
+  decoding="async"
+  fetchpriority="high"
+  referrerpolicy="no-referrer"
+  class="hero-img obj-cover"
+/>
           </div>
         </div>
       </section>
@@ -414,9 +443,7 @@
             <article class="card">
               <div class="img">
                 <img
-                src="https://images.unsplash.com/photo-5D9-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0.0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0,
-              </div>
-              <div class="body">
+                src="https://source.unsplash.com/1200x900/?red-chili,pepper,spice"body" loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fallback="https://picsum.photos/seed/78805a22/1200/900" onerror="this.onerror=null; this.src=this.dataset.fallback;" alt="Фото">
                 <div class="tag" data-i18n="infusions.hotPepper.tag">
                   Острые пряности
                 </div>
@@ -443,9 +470,9 @@
             <article class="card">
               <div class="img">
                 <img
-                  src="https://images.unsplash.com/photo-1587300003388-59208cc9ff00?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src="https://source.unsplash.com/1200x900/?spices,herbs,glass,jars,still-life,warm,wooden,table,apothecary"
                   alt="Стеклянные банки со специями и травами"
-                />
+                / loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fallback="https://picsum.photos/seed/ee3bf659/1200/900" onerror="this.onerror=null; this.src=this.dataset.fallback;">
               </div>
               <div class="body">
                 <div class="tag" data-i18n="infusions.aromaticPepper.tag">
@@ -476,9 +503,9 @@
             <article class="card">
               <div class="img">
                 <img
-                  src="https://images.unsplash.com/photo-1587300003388-59208cc9ff00?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src="https://source.unsplash.com/1200x900/?rye,bread,loaf,artisan,bakery,dark,wooden,board"
                   alt="Ржаной хлеб бородинский"
-                />
+                / loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fallback="https://picsum.photos/seed/85760877/1200/900" onerror="this.onerror=null; this.src=this.dataset.fallback;">
               </div>
               <div class="body">
                 <div class="tag" data-i18n="infusions.borodino.tag">
@@ -507,9 +534,9 @@
             <article class="card">
               <div class="img">
                 <img
-                  src="https://images.unsplash.com/photo-1628087232912-df01044777e9?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src="https://source.unsplash.com/1200x900/?limoncello,lemons,citrus,liqueur,bottle,still-life"
                   alt="Лимончелло и лимоны"
-                />
+                / loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fallback="https://picsum.photos/seed/e15943b9/1200/900" onerror="this.onerror=null; this.src=this.dataset.fallback;">
               </div>
               <div class="body">
                 <div class="tag" data-i18n="infusions.limoncello.tag">
@@ -551,9 +578,9 @@
             <article class="card">
               <div class="img">
                 <img
-                  src="https://images.unsplash.com/photo-IzhWizcBp_A?auto=format&fit=crop&w=1200&q=80"
+                  src="https://source.unsplash.com/1200x900/?distillery,fermentation,tanks,copper,stainless,brewery,industrial"
                   alt="Ряд ферментационных баков"
-                />
+                / loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fallback="https://picsum.photos/seed/9f5815ba/1200/900" onerror="this.onerror=null; this.src=this.dataset.fallback;">
               </div>
               <div class="body">
                 <div class="tag" data-i18n="moonshine.sugar.tag">
@@ -578,9 +605,9 @@
             <article class="card">
               <div class="img">
                 <img
-                  src="https://images.unsplash.com/photo-299235?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src="https://source.unsplash.com/1200x900/?grapes,vineyard,cluster,harvest,sunlight,bokeh"
                   alt="Гроздья винограда на лозе"
-                />
+                / loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fallback="https://picsum.photos/seed/725e173f/1200/900" onerror="this.onerror=null; this.src=this.dataset.fallback;">
               </div>
               <div class="body">
                 <div class="tag" data-i18n="moonshine.chacha.tag">
@@ -606,9 +633,9 @@
             <article class="card">
               <div class="img">
                 <img
-                  src="https://images.unsplash.com/photo-299235?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src="https://source.unsplash.com/1200x900/?apples,crate,orchard,harvest,wooden,box,still-life"
                   alt="Яблоки в деревянном ящике"
-                />
+                / loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fallback="https://picsum.photos/seed/d05c2198/1200/900" onerror="this.onerror=null; this.src=this.dataset.fallback;">
               </div>
               <div class="body">
                 <div class="tag" data-i18n="moonshine.fruit.tag">
@@ -639,11 +666,19 @@
           <h2 data-i18n="quotes.title">Крылатые фразы</h2>
           <div class="grid cols-2">
             <article class="card">
-              <div class="img">
+                <div class="img">
                 <img
-                  src="https://images.unsplash.com/photo-IPxGoAhFP1g?auto=format&fit=crop&w=1200&q=80"
-                  alt="Бокалы на дегустации"
-                />
+  src="https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg?auto=compress&cs=tinysrgb&w=1600"
+  srcset="https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg?auto=compress&cs=tinysrgb&w=800 800w,
+          https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg?auto=compress&cs=tinysrgb&w=1200 1200w,
+          https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg?auto=compress&cs=tinysrgb&w=1600 1600w"
+  sizes="(min-width:1024px) 1200px, 100vw"
+  alt="Тост — поднятые бокалы с шампанским"
+  loading="lazy"
+  decoding="async"
+  referrerpolicy="no-referrer"
+  class="obj-cover"
+/>
               </div>
               <div class="body">
                 <p>
@@ -669,9 +704,9 @@
             <article class="card">
               <div class="img">
                 <img
-                  src="https://images.unsplash.com/photo-JtoeONdTJZw?auto=format&fit=crop&w=1200&q=80"
+                  src="https://source.unsplash.com/1200x900/?cheers,toast,glasses,celebration,evening,party"
                   alt="Тост, рука с бокалом"
-                />
+                / loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fallback="https://picsum.photos/seed/2f383a49/1200/900" onerror="this.onerror=null; this.src=this.dataset.fallback;" srcset="https://images.unsplash.com/photo-vYK48O7HDOU?fm=webp&q=80&w=640&fit=crop 640w, https://images.unsplash.com/photo-vYK48O7HDOU?fm=webp&q=80&w=960&fit=crop 960w, https://images.unsplash.com/photo-vYK48O7HDOU?fm=webp&q=80&w=1280&fit=crop 1280w, https://images.unsplash.com/photo-vYK48O7HDOU?fm=webp&q=80&w=1600&fit=crop 1600w, https://images.unsplash.com/photo-vYK48O7HDOU?fm=webp&q=80&w=2000&fit=crop 2000w" sizes="(min-width:1024px) 1200px, 100vw" class="hero-img hero-img">
               </div>
               <div class="body">
                 <p>
@@ -704,9 +739,9 @@
             <article class="card">
               <div class="img">
                 <img
-                  src="https://images.unsplash.com/photo-p2Z5Rea6VjE?auto=format&fit=crop&w=1200&q=80"
+                  src="https://source.unsplash.com/1200x900/?copper,still,distillery,alembic,pipes,boiler"
                   alt="Медные/стальные перегонные ёмкости"
-                />
+                / loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fallback="https://picsum.photos/seed/18d61d7e/1200/900" onerror="this.onerror=null; this.src=this.dataset.fallback;">
               </div>
               <div class="body">
                 <ul class="clean">
@@ -728,9 +763,9 @@
             <article class="card">
               <div class="img">
                 <img
-                  src="https://images.unsplash.com/photo-FcS257Cw9es?auto=format&fit=crop&w=1200&q=80"
+                  src="https://source.unsplash.com/1200x900/?whiskey,rocks,glass,ice,amber,lowball,bar,still-life"
                   alt="Рокс с напитком"
-                />
+                / loading="lazy" decoding="async" referrerpolicy="no-referrer" data-fallback="https://picsum.photos/seed/bbdd361d/1200/900" onerror="this.onerror=null; this.src=this.dataset.fallback;">
               </div>
               <div class="body">
                 <ul class="clean">
@@ -1034,5 +1069,32 @@
       );
       setLang(localStorage.getItem("lang") || "ru");
     </script>
-  </body>
+  
+<script>
+(function(){
+  function ensureImage(el){
+    if(!el) return;
+    var swapped = false;
+    function swap(){
+      if(swapped) return;
+      swapped = true;
+      var fb = el.getAttribute('data-fallback');
+      if(fb){ el.src = fb; }
+    }
+    // If already broken, swap right away
+    el.addEventListener('error', swap, { once:true });
+    // Timeout if not loaded with natural size
+    setTimeout(function(){
+      if(!el.complete || !el.naturalWidth){
+        swap();
+      }
+    }, 2500);
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('img[data-fallback]').forEach(ensureImage);
+  });
+})();
+</script>
+
+</body>
 </html>
