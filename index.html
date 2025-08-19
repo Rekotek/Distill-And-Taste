@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Самогон и Настойки — Культурное дегустирование</title>
+    <meta
+      name="description"
+      content="Культурное и ответственное знакомство с самогоном и настойками: рецепты, история, дегустация. 21+. Чрезмерное употребление алкоголя вредит вашему здоровью."
+    />
+    <style>
+      :root {
+        --bg: #faf9f7;
+        --paper: #ffffff;
+        --ink: #161514;
+        --muted: #6b6b6b;
+        --brand: #8c3a2b; /* коньячный */
+        --brand-2: #c29a5b; /* медовый */
+        --ring: #e7d9c9;
+        --border: #e6e2dc;
+        --shadow: 0 10px 25px rgba(22, 21, 20, 0.08),
+          0 2px 8px rgba(22, 21, 20, 0.06);
+        --radius: 18px;
+        --radius-lg: 26px;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter",
+          "Segoe UI", Roboto, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: min(1200px, 92%);
+        margin: 0 auto;
+      }
+
+      /* ====== Fixed Header ====== */
+      header.site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        backdrop-filter: saturate(1.2) blur(8px);
+        background: color-mix(in oklab, var(--paper) 92%, transparent);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.6rem 0;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        color: inherit;
+      }
+      .logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 30% 30%,
+          var(--brand-2),
+          var(--brand)
+        );
+        box-shadow: inset 0 0 0 3px #fff7, 0 4px 10px #00000018;
+        border: 1px solid var(--border);
+      }
+      .brand span {
+        font-weight: 700;
+        letter-spacing: 0.2px;
+      }
+
+      nav.menu {
+        display: flex;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav.menu a {
+        position: relative;
+        padding: 0.6rem 0.9rem;
+        border-radius: 999px;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.2s ease, background 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      nav.menu a:hover {
+        transform: translateY(-1px);
+        background: #ffffff;
+        box-shadow: var(--shadow);
+      }
+      nav.menu a::after {
+        content: "";
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        bottom: 8px;
+        height: 2px;
+        border-radius: 2px;
+        background: linear-gradient(90deg, var(--brand), var(--brand-2));
+        opacity: 0;
+        transform: scaleX(0.5);
+        transform-origin: left;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+      nav.menu a:hover::after {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+
+      .lang {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.2rem;
+        border-radius: 999px;
+        background: #fff;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+      }
+      .lang button {
+        appearance: none;
+        border: 0;
+        background: transparent;
+        padding: 0.35rem 0.6rem;
+        border-radius: 999px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .lang button.active {
+        background: var(--brand);
+        color: white;
+      }
+
+      /* ====== Hero ====== */
+      main {
+        padding-top: 74px;
+      }
+      .hero {
+        position: relative;
+        padding: 48px 0 24px;
+      }
+      .hero-card {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2rem;
+        background: var(--paper);
+        padding: clamp(16px, 3vw, 28px);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+      }
+      .hero h1 {
+        margin: 0 0 0.4rem;
+        font-size: clamp(28px, 4.2vw, 42px);
+        line-height: 1.15;
+      }
+      .hero p.lead {
+        margin: 0 0 1rem;
+        color: var(--muted);
+        font-size: clamp(16px, 2.2vw, 18px);
+      }
+
+      .photo-frame {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4/3;
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+      .photo-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* ====== Sections ====== */
+      section {
+        scroll-margin-top: 110px;
+        padding: 28px 0;
+      }
+      .section-card {
+        background: var(--paper);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        padding: clamp(16px, 3vw, 28px);
+      }
+      h2 {
+        margin: 0 0 12px;
+        font-size: clamp(22px, 3.2vw, 30px);
+      }
+      .muted {
+        color: var(--muted);
+      }
+
+      .grid {
+        display: grid;
+        gap: 1rem;
+      }
+      .grid.cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .grid.cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @media (max-width: 960px) {
+        .hero-card {
+          grid-template-columns: 1fr;
+        }
+        .grid.cols-3 {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 680px) {
+        .grid.cols-2,
+        .grid.cols-3 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        display: grid;
+        grid-template-rows: auto 1fr;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 35px rgba(22, 21, 20, 0.12),
+          0 6px 14px rgba(22, 21, 20, 0.08);
+      }
+      .card .img {
+        aspect-ratio: 4/3;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid var(--border);
+      }
+      .card .img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .card .body {
+        padding: 14px 14px 18px;
+      }
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 0.8rem;
+        padding: 0.2rem 0.55rem;
+        border-radius: 999px;
+        background: #f9f5ef;
+        border: 1px solid var(--ring);
+      }
+
+      ul.clean {
+        margin: 0.4rem 0 0 1.2rem;
+      }
+      ul.clean li {
+        margin: 0.25rem 0;
+      }
+
+      /* ====== Footer (restyled with better rhythm) ====== */
+      footer.site-footer {
+        position: sticky;
+        bottom: 0;
+        z-index: 1000;
+        backdrop-filter: saturate(1.2) blur(8px);
+        background: color-mix(in oklab, var(--paper) 85%, transparent);
+        border-top: 1px solid var(--border);
+      }
+      .footer-inner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.8rem 0;
+      }
+      .footer-left {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.6rem 1rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .footer-left .sep {
+        opacity: 0.6;
+      }
+      .age-badge {
+        background: var(--brand);
+        color: #fff;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      }
+      .contacts {
+        text-align: right;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      /* Accessibility */
+      a:focus,
+      button:focus {
+        outline: 3px solid var(--ring);
+        outline-offset: 2px;
+        border-radius: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="#top" aria-label="Home">
+          <div class="logo" aria-hidden="true"></div>
+          <span>Distill & Taste</span>
+        </a>
+        <nav class="menu" aria-label="Главное меню">
+          <a href="#mission" data-i18n-title="menu.mission">Наша миссия</a>
+          <a href="#infusions" data-i18n-title="menu.infusions">Настойки</a>
+          <a href="#moonshine" data-i18n-title="menu.moonshine">Самогон</a>
+          <a href="#quotes" data-i18n-title="menu.quotes">Крылатые фразы</a>
+          <a href="#facts" data-i18n-title="menu.facts">Интересные факты</a>
+        </nav>
+        <div class="lang" role="group" aria-label="Language switcher">
+          <button class="active" data-lang="ru" aria-pressed="true">RU</button>
+          <button data-lang="lv" aria-pressed="false">LV</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-card">
+          <div>
+            <h1 data-i18n="hero.title">
+              Культурное знакомство с самогоном и настойками
+            </h1>
+            <p class="lead" data-i18n="hero.lead">
+              Ответственное потребление, яркие вкусы и уважение к истории. Мы
+              делимся рецептами, техниками и идеями для дегустации — только для
+              взрослых (21+).
+            </p>
+            <div class="badges" aria-hidden="true"></div>
+          </div>
+          <div
+            class="photo-frame"
+            aria-label="Иллюстрация: компания на дегустации"
+          >
+            <img
+              src="https://images.unsplash.com/photo-546005055-621620336a5f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Красные острые перцы"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Mission -->
+      <section id="mission">
+        <div class="container section-card">
+          <h2 data-i18n="mission.title">Наша миссия</h2>
+          <p class="muted" data-i18n="mission.text1">
+            Мы за культурное и приятное времяпрепровождение. Настойки и
+            благородные дистилляты — часть гастрономической культуры, а также
+            традиционно применялись в лечебных целях (в разумных дозах и по
+            рекомендации специалистов).
+          </p>
+          <p class="muted" data-i18n="mission.text2">
+            Мы уважаем историю напитков — от монастырских травников до домашних
+            энтузиастов — и продвигаем ответственное потребление, диалог о
+            вкусах и эксперименты в рамках закона вашей страны.
+          </p>
+        </div>
+      </section>
+
+      <!-- Infusions -->
+      <section id="infusions">
+        <div class="container section-card">
+          <h2 data-i18n="infusions.title">Настойки: рецепты</h2>
+          <div class="grid cols-2">
+            <!-- Перцовка пекучая -->
+            <article class="card">
+              <div class="img">
+                <img
+                src="https://images.unsplash.com/photo-5D9-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0.0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0,
+              </div>
+              <div class="body">
+                <div class="tag" data-i18n="infusions.hotPepper.tag">
+                  Острые пряности
+                </div>
+                <h3 data-i18n="infusions.hotPepper.name">Перцовка пекучая</h3>
+                <p data-i18n="infusions.hotPepper.desc">
+                  Яркий согревающий вкус с выраженной остротой.
+                </p>
+                <ul class="clean">
+                  <li data-i18n="infusions.hotPepper.r1">
+                    Основа: 0,5 л качественного дистиллята 40–45%.
+                  </li>
+                  <li data-i18n="infusions.hotPepper.r2">
+                    Стручок красного чили (1–2 шт), мёд 1 ст. л., чёрный перец
+                    горошком (5–7).
+                  </li>
+                  <li data-i18n="infusions.hotPepper.r3">
+                    Настаивать 3–5 дней, пробуя ежедневно. Процедить.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Перцовка ароматная -->
+            <article class="card">
+              <div class="img">
+                <img
+                  src="https://images.unsplash.com/photo-1587300003388-59208cc9ff00?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Стеклянные банки со специями и травами"
+                />
+              </div>
+              <div class="body">
+                <div class="tag" data-i18n="infusions.aromaticPepper.tag">
+                  Мягкая пряность
+                </div>
+                <h3 data-i18n="infusions.aromaticPepper.name">
+                  Перцовка ароматная
+                </h3>
+                <p data-i18n="infusions.aromaticPepper.desc">
+                  Мягкая, пряная, с травяным акцентом.
+                </p>
+                <ul class="clean">
+                  <li data-i18n="infusions.aromaticPepper.r1">
+                    Основа: 0,5 л дистиллята 40%.
+                  </li>
+                  <li data-i18n="infusions.aromaticPepper.r2">
+                    Сладкий перец (полоски), гвоздика 2 шт., кориандр ½ ч. л.,
+                    мёд 1 ч. л.
+                  </li>
+                  <li data-i18n="infusions.aromaticPepper.r3">
+                    Настаивать 5–7 дней, затем фильтровать.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Бородинская -->
+            <article class="card">
+              <div class="img">
+                <img
+                  src="https://images.unsplash.com/photo-1587300003388-59208cc9ff00?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Ржаной хлеб бородинский"
+                />
+              </div>
+              <div class="body">
+                <div class="tag" data-i18n="infusions.borodino.tag">
+                  Хлебные тона
+                </div>
+                <h3 data-i18n="infusions.borodino.name">Бородинская</h3>
+                <p data-i18n="infusions.borodino.desc">
+                  Ржаные нотки с тмином и кориандром.
+                </p>
+                <ul class="clean">
+                  <li data-i18n="infusions.borodino.r1">
+                    Основа: 0,5 л дистиллята 40%.
+                  </li>
+                  <li data-i18n="infusions.borodino.r2">
+                    Сухари бородинского хлеба (30–40 г), кориандр ½ ч. л., тмин
+                    ½ ч. л.
+                  </li>
+                  <li data-i18n="infusions.borodino.r3">
+                    Настаивать 3–4 дня, процедить, отстоять.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Лимончелло -->
+            <article class="card">
+              <div class="img">
+                <img
+                  src="https://images.unsplash.com/photo-1628087232912-df01044777e9?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Лимончелло и лимоны"
+                />
+              </div>
+              <div class="body">
+                <div class="tag" data-i18n="infusions.limoncello.tag">
+                  Цитрусовая классика
+                </div>
+                <h3 data-i18n="infusions.limoncello.name">Лимончелло</h3>
+                <p data-i18n="infusions.limoncello.desc">
+                  Итальянский ликёр с яркой цедрой.
+                </p>
+                <ul class="clean">
+                  <li data-i18n="infusions.limoncello.r1">
+                    Основа: 0,7 л нейтрального дистиллята 50%.
+                  </li>
+                  <li data-i18n="infusions.limoncello.r2">
+                    Цедра 6–8 лимонов (без белой части), сироп: 400 г сахара +
+                    400 мл воды.
+                  </li>
+                  <li data-i18n="infusions.limoncello.r3">
+                    Цедру настоять 7–10 дней, смешать с сиропом, охладить.
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Moonshine -->
+      <section id="moonshine">
+        <div class="container section-card">
+          <h2 data-i18n="moonshine.title">Самогон: основы и стили</h2>
+          <p class="muted" data-i18n="moonshine.disclaimer">
+            Внимание: в некоторых странах домашняя перегонка ограничена или
+            запрещена. Соблюдайте законы вашей юрисдикции. Информация приведена
+            для образовательных целей.
+          </p>
+          <div class="grid cols-3">
+            <!-- Сахарный -->
+            <article class="card">
+              <div class="img">
+                <img
+                  src="https://images.unsplash.com/photo-IzhWizcBp_A?auto=format&fit=crop&w=1200&q=80"
+                  alt="Ряд ферментационных баков"
+                />
+              </div>
+              <div class="body">
+                <div class="tag" data-i18n="moonshine.sugar.tag">
+                  Базовый стиль
+                </div>
+                <h3 data-i18n="moonshine.sugar.name">Сахарный</h3>
+                <ul class="clean">
+                  <li data-i18n="moonshine.sugar.r1">
+                    Сусло: вода, сахар, дрожжи (спиртовые/хлебопекарные).
+                  </li>
+                  <li data-i18n="moonshine.sugar.r2">
+                    Брожение 5–10 дней при 20–26°C, затем двойная перегонка.
+                  </li>
+                  <li data-i18n="moonshine.sugar.r3">
+                    Отбор «голов» и «хвостов», угольная фильтрация по желанию.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Чача -->
+            <article class="card">
+              <div class="img">
+                <img
+                  src="https://images.unsplash.com/photo-299235?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Гроздья винограда на лозе"
+                />
+              </div>
+              <div class="body">
+                <div class="tag" data-i18n="moonshine.chacha.tag">
+                  Виноградная выжимка
+                </div>
+                <h3 data-i18n="moonshine.chacha.name">Чача</h3>
+                <ul class="clean">
+                  <li data-i18n="moonshine.chacha.r1">
+                    Сусло: виноградная мезга/выжимка, вода, сахар по
+                    необходимости.
+                  </li>
+                  <li data-i18n="moonshine.chacha.r2">
+                    Брожение 10–20 дней, перегонка с ароматным хвостом.
+                  </li>
+                  <li data-i18n="moonshine.chacha.r3">
+                    Выдержка на дубе для смягчения и аромата.
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- Фруктовый -->
+            <article class="card">
+              <div class="img">
+                <img
+                  src="https://images.unsplash.com/photo-299235?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Яблоки в деревянном ящике"
+                />
+              </div>
+              <div class="body">
+                <div class="tag" data-i18n="moonshine.fruit.tag">
+                  Натуральный аромат
+                </div>
+                <h3 data-i18n="moonshine.fruit.name">Фруктовый</h3>
+                <ul class="clean">
+                  <li data-i18n="moonshine.fruit.r1">
+                    Сусло: яблоки/груши/сливы, сахар по кислотности, винные
+                    дрожжи.
+                  </li>
+                  <li data-i18n="moonshine.fruit.r2">
+                    Медленное брожение при 18–22°C, бережная перегонка.
+                  </li>
+                  <li data-i18n="moonshine.fruit.r3">
+                    Выдержка/настоение на фруктах для усиления букета.
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quotes -->
+      <section id="quotes">
+        <div class="container section-card">
+          <h2 data-i18n="quotes.title">Крылатые фразы</h2>
+          <div class="grid cols-2">
+            <article class="card">
+              <div class="img">
+                <img
+                  src="https://images.unsplash.com/photo-IPxGoAhFP1g?auto=format&fit=crop&w=1200&q=80"
+                  alt="Бокалы на дегустации"
+                />
+              </div>
+              <div class="body">
+                <p>
+                  «<span data-i18n="quotes.q1">Истина — в вине.</span>»
+                  <span class="muted" data-i18n="quotes.q1a"
+                    >— латинское изречение</span
+                  >
+                </p>
+                <p>
+                  «<span data-i18n="quotes.q2"
+                    >Вино — постоянное доказательство того, что Бог любит нас и
+                    хочет, чтобы мы были счастливы.</span
+                  >»
+                  <span class="muted"
+                    >—
+                    <span data-i18n="quotes.q2a"
+                      >приписывается Б. Франклину</span
+                    ></span
+                  >
+                </p>
+              </div>
+            </article>
+            <article class="card">
+              <div class="img">
+                <img
+                  src="https://images.unsplash.com/photo-JtoeONdTJZw?auto=format&fit=crop&w=1200&q=80"
+                  alt="Тост, рука с бокалом"
+                />
+              </div>
+              <div class="body">
+                <p>
+                  «<span data-i18n="quotes.q3"
+                    >Где хорошая беседа, там и хороший напиток.</span
+                  >»
+                  <span class="muted" data-i18n="quotes.q3a"
+                    >— из бытовой мудрости</span
+                  >
+                </p>
+                <p>
+                  «<span data-i18n="quotes.q4"
+                    >Всему есть мера — и в силе, и во вкусе.</span
+                  >»
+                  <span class="muted" data-i18n="quotes.q4a"
+                    >— принцип ответственного наслаждения</span
+                  >
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Facts -->
+      <section id="facts">
+        <div class="container section-card">
+          <h2 data-i18n="facts.title">Интересные факты</h2>
+          <div class="grid cols-2">
+            <article class="card">
+              <div class="img">
+                <img
+                  src="https://images.unsplash.com/photo-p2Z5Rea6VjE?auto=format&fit=crop&w=1200&q=80"
+                  alt="Медные/стальные перегонные ёмкости"
+                />
+              </div>
+              <div class="body">
+                <ul class="clean">
+                  <li data-i18n="facts.f1">
+                    Травяные настойки исторически использовались как часть
+                    аптекарских практик в Европе.
+                  </li>
+                  <li data-i18n="facts.f2">
+                    Домашние настои на ягодах и фруктах были способом сберечь
+                    урожай и получить ароматные напитки.
+                  </li>
+                  <li data-i18n="facts.f3">
+                    Дегустация — это язык: цвет, аромат, вкус и послевкусие
+                    помогают описывать впечатления и делиться ими.
+                  </li>
+                </ul>
+              </div>
+            </article>
+            <article class="card">
+              <div class="img">
+                <img
+                  src="https://images.unsplash.com/photo-FcS257Cw9es?auto=format&fit=crop&w=1200&q=80"
+                  alt="Рокс с напитком"
+                />
+              </div>
+              <div class="body">
+                <ul class="clean">
+                  <li data-i18n="facts.f4">
+                    Техника двойной перегонки позволяет получить более чистый и
+                    сбалансированный дистиллят.
+                  </li>
+                  <li data-i18n="facts.f5">
+                    В разных регионах сложились свои стили: фруктовые бренди,
+                    зерновые дистилляты, настойки на травах.
+                  </li>
+                  <li data-i18n="facts.f6">
+                    Умеренность — ключ к раскрытию букета и радости общения.
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-left">
+          <div class="age-badge">21+</div>
+          <span class="sep">•</span>
+          <div data-i18n="footer.warn">
+            Чрезмерное употребление алкоголя вредит вашему здоровью
+          </div>
+          <span class="sep">•</span>
+          <div data-i18n="footer.edu">
+            Образовательный проект. Не для продвижения продажи алкоголя.
+          </div>
+        </div>
+        <div class="contacts">
+          <div>Email: hello@distillandtaste.example</div>
+          <div data-i18n="footer.contact">
+            По вопросам сотрудничества и дегустаций — пишите.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scroll
+      document.querySelectorAll("nav.menu a").forEach((a) => {
+        a.addEventListener("click", (e) => {
+          if (a.hash) {
+            e.preventDefault();
+            document
+              .querySelector(a.hash)
+              ?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      // ======= Language i18n =======
+      const dict = {
+        ru: {
+          menu: {
+            mission: "Наша миссия",
+            infusions: "Настойки",
+            moonshine: "Самогон",
+            quotes: "Крылатые фразы",
+            facts: "Интересные факты",
+          },
+          hero: {
+            title: "Культурное знакомство с самогоном и настойками",
+            lead: "Ответственное потребление, яркие вкусы и уважение к истории. Мы делимся рецептами, техниками и идеями для дегустации — только для взрослых (21+).",
+            pill1: "Образовательный контент",
+            pill2: "Ответственно и законно",
+            pill3: "Рецепты и дегустации",
+          },
+          mission: {
+            title: "Наша миссия",
+            text1:
+              "Мы за культурное и приятное времяпрепровождение. Настойки и благородные дистилляты — часть гастрономической культуры, а также традиционно применялись в лечебных целях (в разумных дозах и по рекомендации специалистов).",
+            text2:
+              "Мы уважаем историю напитков — от монастырских травников до домашних энтузиастов — и продвигаем ответственное потребление, диалог о вкусах и эксперименты в рамках закона вашей страны.",
+          },
+          infusions: {
+            title: "Настойки: рецепты",
+            hotPepper: {
+              tag: "Острые пряности",
+              name: "Перцовка пекучая",
+              desc: "Яркий согревающий вкус с выраженной остротой.",
+              r1: "Основа: 0,5 л качественного дистиллята 40–45%.",
+              r2: "Стручок красного чили (1–2 шт), мёд 1 ст. л., чёрный перец горошком (5–7).",
+              r3: "Настаивать 3–5 дней, пробуя ежедневно. Процедить.",
+            },
+            aromaticPepper: {
+              tag: "Мягкая пряность",
+              name: "Перцовка ароматная",
+              desc: "Мягкая, пряная, с травяным акцентом.",
+              r1: "Основа: 0,5 л дистиллята 40%.",
+              r2: "Сладкий перец (полоски), гвоздика 2 шт., кориандр ½ ч. л., мёд 1 т. л.",
+              r3: "Настаивать 5–7 дней, затем фильтровать.",
+            },
+            borodino: {
+              tag: "Хлебные тона",
+              name: "Бородинская",
+              desc: "Ржаные нотки с тмином и кориандром.",
+              r1: "Основа: 0,5 л дистиллята 40%.",
+              r2: "Сухари бородинского хлеба (30–40 г), кориандр ½ ч. л., тмин ½ ч. л.",
+              r3: "Настаивать 3–4 дня, процедить, отстоять.",
+            },
+            limoncello: {
+              tag: "Цитрусовая классика",
+              name: "Лимончелло",
+              desc: "Итальянский ликёр с яркой цедрой.",
+              r1: "Основа: 0,7 л нейтрального дистиллята 50%.",
+              r2: "Цедра 6–8 лимонов (без белой части), сироп: 400 г сахара + 400 мл воды.",
+              r3: "Цедру настоять 7–10 дней, смешать с сиропом, охладить.",
+            },
+          },
+          moonshine: {
+            title: "Самогон: основы и стили",
+            disclaimer:
+              "Внимание: в некоторых странах домашняя перегонка ограничена или запрещена. Соблюдайте законы вашей юрисдикции. Информация приведена для образовательных целей.",
+            sugar: {
+              tag: "Базовый стиль",
+              name: "Сахарный",
+              r1: "Сусло: вода, сахар, дрожжи (спиртовые/хлебопекарные).",
+              r2: "Брожение 5–10 дней при 20–26°C, затем двойная перегонка.",
+              r3: "Отбор «голов» и «хвостов», угольная фильтрация по желанию.",
+            },
+            chacha: {
+              tag: "Виноградная выжимка",
+              name: "Чача",
+              r1: "Сусло: виноградная мезга/выжимка, вода, сахар по необходимости.",
+              r2: "Брожение 10–20 дней, перегонка с ароматным хвостом.",
+              r3: "Выдержка на дубе для смягчения и аромата.",
+            },
+            fruit: {
+              tag: "Натуральный аромат",
+              name: "Фруктовый",
+              r1: "Сусло: яблоки/груши/сливы, сахар по кислотности, винные дрожжи.",
+              r2: "Медленное брожение при 18–22°C, бережная перегонка.",
+              r3: "Выдержка/настоение на фруктах для усиления букета.",
+            },
+          },
+          quotes: {
+            title: "Крылатые фразы",
+            q1: "Истина — в вине.",
+            q1a: "— латинское изречение",
+            q2: "Вино — постоянное доказательство того, что Бог любит нас и хочет, чтобы мы были счастливы.",
+            q2a: "приписывается Б. Франклину",
+            q3: "Где хорошая беседа, там и хороший напиток.",
+            q3a: "— из бытовой мудрости",
+            q4: "Всему есть мера — и в силе, и во вкусе.",
+            q4a: "— принцип ответственного наслаждения",
+          },
+          facts: {
+            title: "Интересные факты",
+            f1: "Травяные настойки исторически использовались как часть аптекарских практик в Европе.",
+            f2: "Домашние настои на ягодах и фруктах были способом сберечь урожай и получить ароматные напитки.",
+            f3: "Дегустация — это язык: цвет, аромат, вкус и послевкусие помогают описывать впечатления и делиться ими.",
+            f4: "Техника двойной перегонки позволяет получить более чистый и сбалансированный дистиллят.",
+            f5: "В разных регионах сложились свои стили: фруктовые бренди, зерновые дистилляты, настойки на травах.",
+            f6: "Умеренность — ключ к раскрытию букета и радости общения.",
+          },
+          footer: {
+            warn: "Чрезмерное употребление алкоголя вредит вашему здоровью",
+            edu: "Образовательный проект. Не для продвижения продажи алкоголя.",
+            contact: "По вопросам сотрудничества и дегустаций — пишите.",
+          },
+        },
+        lv: {
+          menu: {
+            mission: "Mūsu misija",
+            infusions: "Uzlējumi",
+            moonshine: "Mājbrūvējums",
+            quotes: "Spārnotie teicieni",
+            facts: "Interesanti fakti",
+          },
+          hero: {
+            title: "Kultūra, mājbrūvējums un uzlējumi",
+            lead: "Atbildīga baudīšana, spilgtas garšas un cieņa pret vēsturi. Dalāmies ar receptēm un degustāciju idejām — tikai pieaugušajiem (21+).",
+            pill1: "Izglītojošs saturs",
+            pill2: "Atbildīgi un likumīgi",
+            pill3: "Receptes un degustācijas",
+          },
+          mission: {
+            title: "Mūsu misija",
+            text1:
+              "Mēs iestājamies par kulturālu un patīkamu atpūtu. Uzlējumi un cēli destilāti ir gastronomiskās kultūras daļa un vēsturiski lietoti ārstnieciskiem mērķiem (mērenās devās un speciālistu ieteikumā).",
+            text2:
+              "Cienām dzērienu vēsturi — no klosteru zāļu meistariem līdz mājražotājiem — un veicinām atbildīgu baudīšanu un eksperimentus, ievērojot jūsu valsts likumus.",
+          },
+          infusions: {
+            title: "Uzlējumi: receptes",
+            hotPepper: {
+              tag: "Asas garšvielas",
+              name: "Pikantā piparu uzlējums",
+              desc: "Sildoša, izteikti asa garša.",
+              r1: "Bāze: 0,5 l kvalitatīva destilāta 40–45%.",
+              r2: "Sarkanais čili (1–2 gab.), medus 1 ēdk., melnie pipari (5–7).",
+              r3: "Uzliet 3–5 dienas, ik dienu nogaršojot. Nokāst.",
+            },
+            aromaticPepper: {
+              tag: "Maigs pikantums",
+              name: "Aromātiskā piparu uzlējums",
+              desc: "Maigs, garšvielām un zālēm bagāts.",
+              r1: "Bāze: 0,5 l destilāta 40%.",
+              r2: "Saldais pipars, krustnagliņas 2 gab., koriandrs ½ tējk., medus 1 tējk.",
+              r3: "Uzliet 5–7 dienas, pēc tam filtrēt.",
+            },
+            borodino: {
+              tag: "Rudzu notis",
+              name: "Borodino",
+              desc: "Rudzu maize ar ķimenēm un koriandru.",
+              r1: "Bāze: 0,5 l destilāta 40%.",
+              r2: "Borodino sausiņi (30–40 g), koriandrs ½ tējk., ķimenes ½ tējk.",
+              r3: "Uzliet 3–4 dienas, nokāst un nostādināt.",
+            },
+            limoncello: {
+              tag: "Citrusu klasika",
+              name: "Limončello",
+              desc: "Itāļu liķieris ar spilgtu miziņu.",
+              r1: "Bāze: 0,7 l neitrāla destilāta 50%.",
+              r2: "6–8 citronu miziņa (bez baltās daļas), sīrups: 400 g cukura + 400 ml ūdens.",
+              r3: "Miziņu uzliet 7–10 dienas, sajaukt ar sīrupu, atdzesēt.",
+            },
+          },
+          moonshine: {
+            title: "Mājbrūvējums: pamati un stili",
+            disclaimer:
+              "Uzmanību: dažās valstīs mājas destilēšana ir ierobežota vai aizliegta. Ievērojiet savas jurisdikcijas likumus. Informācija ir izglītojoša.",
+            sugar: {
+              tag: "Pamata stils",
+              name: "Cukura brūvējums",
+              r1: "Mis: ūdens, cukurs, raugs (spirts/maizes).",
+              r2: "Rūgšana 5–10 dienas 20–26°C, pēc tam dubultā destilācija.",
+              r3: "«Galvas» un «astes» atdalīšana, pēc izvēles ogļu filtrācija.",
+            },
+            chacha: {
+              tag: "Vīnogu izspaidu",
+              name: "Čača",
+              r1: "Mis: vīnogu izspaidas, ūdens, cukurs pēc vajadzības.",
+              r2: "Rūgšana 10–20 dienas, aromātiska destilācija.",
+              r3: "Izturēšana ozolā maigumam un aromātam.",
+            },
+            fruit: {
+              tag: "Dabīgs aromāts",
+              name: "Augļu",
+              r1: "Mis: āboli/bumbieri/plūmes, cukurs pēc skābuma, vīna raugs.",
+              r2: "Lēna rūgšana 18–22°C, saudzīga destilācija.",
+              r3: "Izturēšana/uzlējums uz augļiem aromāta pastiprināšanai.",
+            },
+          },
+          quotes: {
+            title: "Spārnotie teicieni",
+            q1: "Patiesība ir vīnā.",
+            q1a: "— latīņu izteiciens",
+            q2: "Vīns ir pastāvīgs pierādījums tam, ka Dievs mūs mīl un vēlas mūs laimīgus.",
+            q2a: "piedēvēts B. Franklinam",
+            q3: "Kur laba saruna, tur labs dzēriens.",
+            q3a: "— tautas gudrība",
+            q4: "Visam ir mērs — gan stiprumam, gan garšai.",
+            q4a: "— atbildīgas baudīšanas princips",
+          },
+          facts: {
+            title: "Interesanti fakti",
+            f1: "Augu uzlējumi vēsturiski bijuši aptiekāru prakses daļa Eiropā.",
+            f2: "Mājas augļu un ogu uzlējumi ļāvuši saglabāt ražu un iegūt aromātiskus dzērienus.",
+            f3: "Degustācija ir valoda: krāsa, aromāts, garša un pēcgarša palīdz dalīties iespaidos.",
+            f4: "Dubultā destilācija ļauj iegūt tīrāku un līdzsvarotāku destilātu.",
+            f5: "Dažādos reģionos izveidojušies savi stili: augļu brendiji, graudu destilāti, zāļu uzlējumi.",
+            f6: "Mērenība ir atslēga bouquet atklāšanai un sarunu priekam.",
+          },
+          footer: {
+            warn: "Alkohola pārmērīga lietošana kaitē jūsu veselībai",
+            edu: "Izglītojošs projekts. Ne veicina alkohola pārdošanu.",
+            contact: "Par sadarbību un degustācijām — rakstiet.",
+          },
+        },
+      };
+
+      const langButtons = document.querySelectorAll(".lang button");
+      function setLang(lang) {
+        localStorage.setItem("lang", lang);
+        langButtons.forEach((b) =>
+          b.classList.toggle("active", b.dataset.lang === lang)
+        );
+        document.documentElement.lang = lang === "lv" ? "lv" : "ru";
+        // Titles in menu
+        document.querySelectorAll("[data-i18n-title]").forEach((el) => {
+          const path = el.getAttribute("data-i18n-title").split(".");
+          el.textContent =
+            path.reduce((o, k) => o?.[k], dict[lang]) || el.textContent;
+        });
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const path = el.getAttribute("data-i18n").split(".");
+          el.textContent =
+            path.reduce((o, k) => o?.[k], dict[lang]) || el.textContent;
+        });
+      }
+      langButtons.forEach((b) =>
+        b.addEventListener("click", () => setLang(b.dataset.lang))
+      );
+      setLang(localStorage.getItem("lang") || "ru");
+    </script>
+  </body>
+</html>
