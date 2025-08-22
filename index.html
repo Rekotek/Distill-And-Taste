@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 
 <html lang="ru">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Самогон и Настойки — Культурное дегустирование</title>
-<meta content="Культурное и ответственное знакомство с самогоном и настойками: рецепты, история, дегустация. 21+. Чрезмерное употребление алкоголя вредит вашему здоровью." name="description"/>
-<style>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Самогон и Настойки — Культурное дегустирование</title>
+    <meta
+      content="Культурное и ответственное знакомство с самогоном и настойками: рецепты, история, дегустация. 21+. Чрезмерное употребление алкоголя вредит вашему здоровью."
+      name="description"
+    />
+    <style>
       :root {
         --bg: #faf9f7;
         --paper: #ffffff;
@@ -329,6 +332,86 @@
         color: var(--muted);
       }
 
+      /* Form Styles */
+      .form-group {
+        margin-bottom: 1.2rem;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--ink);
+        font-size: 0.9rem;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
+        font-family: inherit;
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--brand);
+        box-shadow: 0 0 0 3px rgba(140, 58, 43, 0.1);
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+      .form-submit {
+        text-align: center;
+        margin-top: 2rem;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        border: 2px solid var(--brand);
+        border-radius: var(--radius-lg);
+        background: var(--brand);
+        color: white;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: inherit;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+        background: #a34133;
+      }
+      .btn:active {
+        transform: translateY(0);
+      }
+      .btn-primary {
+        background: var(--brand);
+        border-color: var(--brand);
+      }
+      .btn-primary:hover {
+        background: #a34133;
+        border-color: #a34133;
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--brand);
+      }
+      .btn-secondary:hover {
+        background: var(--brand);
+        color: white;
+      }
+
       /* Accessibility */
       a:focus,
       button:focus {
@@ -337,357 +420,747 @@
         border-radius: 12px;
       }
     </style>
-<!-- Images served via Unsplash Source API (randomized by query). Consider adding photographer credits if fixed images are later selected. -->
-<style>
-/* --- image loading helpers --- */
-.img-frame{background:linear-gradient(90deg,#2a2a2a 0%,#333 50%,#2a2a2a 100%);background-size:200% 100%;animation:shimmer 1.2s infinite;display:block;overflow:hidden}
-.img-frame img{width:100%;height:100%;object-fit:cover;display:block}
-@keyframes shimmer{0%{background-position:0% 50%}100%{background-position:100% 50%}}
-.aspect-16x9{aspect-ratio:16/9}
-.aspect-4x3{aspect-ratio:4/3}
-.aspect-1x1{aspect-ratio:1/1}
-</style><style>
-/* hero image fit */
-.hero-img{width:100%;height:100%;object-fit:cover;object-position:center}
-</style><style>
-/* ensure hero/social images cover container */
-.hero-img{width:100%;height:100%;object-fit:cover;object-position:center}
+    <!-- Images served via Unsplash Source API (randomized by query). Consider adding photographer credits if fixed images are later selected. -->
+    <style>
+      /* --- image loading helpers --- */
+      .img-frame {
+        background: linear-gradient(90deg, #2a2a2a 0%, #333 50%, #2a2a2a 100%);
+        background-size: 200% 100%;
+        animation: shimmer 1.2s infinite;
+        display: block;
+        overflow: hidden;
+      }
+      .img-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+      .aspect-16x9 {
+        aspect-ratio: 16/9;
+      }
+      .aspect-4x3 {
+        aspect-ratio: 4/3;
+      }
+      .aspect-1x1 {
+        aspect-ratio: 1/1;
+      }
+    </style>
+    <style>
+      /* hero image fit */
+      .hero-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    </style>
+    <style>
+      /* ensure hero/social images cover container */
+      .hero-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
 
-.obj-cover{width:100%;height:100%;object-fit:cover;object-position:center}
-</style><!-- Hero image: Wikimedia Commons (CC BY-SA 2.0) Fabrizio Sciami -->
-</head>
-<body>
-<header class="site-header">
-<div class="container nav">
-<a aria-label="Home" class="brand" href="#top">
-<div aria-hidden="true" class="logo"></div>
-<span>Distill &amp; Taste</span>
-</a>
-<nav aria-label="Главное меню" class="menu">
-<a data-i18n-title="menu.mission" href="#mission">Наша миссия</a>
-<a data-i18n-title="menu.infusions" href="#infusions">Настойки</a>
-<a data-i18n-title="menu.moonshine" href="#moonshine">Самогон</a>
-<a data-i18n-title="menu.quotes" href="#quotes">Крылатые фразы</a>
-<a data-i18n-title="menu.facts" href="#facts">Интересные факты</a>
-</nav>
-<div aria-label="Language switcher" class="lang" role="group">
-<button aria-pressed="true" class="active" data-lang="ru">RU</button>
-<button aria-pressed="false" data-lang="lv">LV</button>
-</div>
-</div>
-</header>
-<main id="top">
-<section class="hero">
-<div class="container hero-card">
-<div>
-<h1 data-i18n="hero.title">
+      .obj-cover {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    </style>
+    <!-- Hero image: Wikimedia Commons (CC BY-SA 2.0) Fabrizio Sciami -->
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a aria-label="Home" class="brand" href="#top">
+          <div aria-hidden="true" class="logo"></div>
+          <span>Distill &amp; Taste</span>
+        </a>
+        <nav aria-label="Главное меню" class="menu">
+          <a data-i18n-title="menu.mission" href="#mission">Наша миссия</a>
+          <a data-i18n-title="menu.infusions" href="#infusions">Настойки</a>
+          <a data-i18n-title="menu.moonshine" href="#moonshine">Самогон</a>
+          <a data-i18n-title="menu.quotes" href="#quotes">Крылатые фразы</a>
+          <a data-i18n-title="menu.facts" href="#facts">Интересные факты</a>
+        </nav>
+        <div aria-label="Language switcher" class="lang" role="group">
+          <button aria-pressed="true" class="active" data-lang="ru">RU</button>
+          <button aria-pressed="false" data-lang="lv">LV</button>
+        </div>
+      </div>
+    </header>
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-card">
+          <div>
+            <h1 data-i18n="hero.title">
               Культурное знакомство с самогоном и настойками
             </h1>
-<p class="lead" data-i18n="hero.lead">
+            <p class="lead" data-i18n="hero.lead">
               Ответственное потребление, яркие вкусы и уважение к истории. Мы
               делимся рецептами, техниками и идеями для дегустации — только для
               взрослых (21+).
-              </p>
-<p class="lead" data-i18n="hero.extra">Мы также организуем семинары, дегустационные встречи и выездные мастер-классы для тех, кто хочет глубже познакомиться с культурой напитков.</p>
-<a class="btn btn-primary" href="#signup"><span data-i18n="hero.cta">Записаться</span></a>
-<div aria-hidden="true" class="badges"></div>
-</div>
-<div aria-label="Иллюстрация: компания на дегустации" class="photo-frame">
-<img alt="Культурная компания за праздничным столом, тост на дегустации" class="hero-img obj-cover" decoding="async" fetchpriority="high" loading="eager" referrerpolicy="no-referrer" sizes="(min-width:1024px) 900px, 100vw" src="https://images.pexels.com/photos/16762635/pexels-photo-16762635.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2000" srcset="https://images.pexels.com/photos/16762635/pexels-photo-16762635.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800 800w,
-          https://images.pexels.com/photos/16762635/pexels-photo-16762635.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w,
-          https://images.pexels.com/photos/16762635/pexels-photo-16762635.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w,
-          https://images.pexels.com/photos/16762635/pexels-photo-16762635.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2000 2000w"/>
-</div>
-</div>
-</section>
-<!-- Mission -->
-<section id="mission">
-<div class="container section-card">
-<h2 data-i18n="mission.title">Наша миссия</h2>
-<p class="muted" data-i18n="mission.text1">
+            </p>
+            <p class="lead" data-i18n="hero.extra">
+              Мы также организуем семинары, дегустационные встречи и выездные
+              мастер-классы для тех, кто хочет глубже познакомиться с культурой
+              напитков.
+            </p>
+            <a class="btn btn-primary" href="#signup"
+              ><span data-i18n="hero.cta">Записаться</span></a
+            >
+            <div aria-hidden="true" class="badges"></div>
+          </div>
+          <div
+            aria-label="Иллюстрация: компания на дегустации"
+            class="photo-frame"
+          >
+            <img
+              alt="Культурная компания за праздничным столом, тост на дегустации"
+              class="hero-img obj-cover"
+              decoding="async"
+              fetchpriority="high"
+              loading="eager"
+              referrerpolicy="no-referrer"
+              sizes="(min-width:1024px) 900px, 100vw"
+              src="https://images.pexels.com/photos/16762635/pexels-photo-16762635.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2000"
+              srcset="
+                https://images.pexels.com/photos/16762635/pexels-photo-16762635.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800   800w,
+                https://images.pexels.com/photos/16762635/pexels-photo-16762635.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w,
+                https://images.pexels.com/photos/16762635/pexels-photo-16762635.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w,
+                https://images.pexels.com/photos/16762635/pexels-photo-16762635.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2000 2000w
+              "
+            />
+          </div>
+        </div>
+      </section>
+      <!-- Mission -->
+      <section id="mission">
+        <div class="container section-card">
+          <h2 data-i18n="mission.title">Наша миссия</h2>
+          <p class="muted" data-i18n="mission.text1">
             Мы за культурное и приятное времяпрепровождение. Настойки и
             благородные дистилляты — часть гастрономической культуры, а также
             традиционно применялись в лечебных целях (в разумных дозах и по
             рекомендации специалистов).
           </p>
-<p class="muted" data-i18n="mission.text2">
+          <p class="muted" data-i18n="mission.text2">
             Мы уважаем историю напитков — от монастырских травников до домашних
             энтузиастов — и продвигаем ответственное потребление, диалог о
             вкусах и эксперименты в рамках закона вашей страны.
           </p>
-</div>
-</section>
-<!-- Infusions -->
-<section id="infusions">
-<div class="container section-card">
-<h2 data-i18n="infusions.title">Настойки: рецепты</h2>
-<div class="grid cols-2">
-<!-- Перцовка пекучая -->
-<article class="card">
-<div class="img"><img alt="Острые красные перцы чили" class="obj-cover" decoding="async" loading="lazy" referrerpolicy="no-referrer" sizes="(min-width:1024px) 1200px, 100vw" src="https://images.pexels.com/photos/7094360/pexels-photo-7094360.jpeg?auto=compress&amp;cs=tinysrgb" srcset="https://images.pexels.com/photos/7094360/pexels-photo-7094360.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800 800w, https://images.pexels.com/photos/7094360/pexels-photo-7094360.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w, https://images.pexels.com/photos/7094360/pexels-photo-7094360.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w"/></div><div class="body"><div class="tag" data-i18n="infusions.hotPepper.tag">Острые пряности</div><h3 data-i18n="infusions.hotPepper.name">Перцовка пекучая</h3><p data-i18n="infusions.hotPepper.desc">Яркий согревающий вкус с выраженной остротой.</p><ul class="clean"><li data-i18n="infusions.hotPepper.r1">Основа: 0,5 л качественного дистиллята 40–45%.</li><li data-i18n="infusions.hotPepper.r2">Стручок красного чили (1–2 шт), мёд 1 ст. л., чёрный перец горошком (5–7).</li><li data-i18n="infusions.hotPepper.r3">Настаивать 3–5 дней, пробуя ежедневно. Процедить.</li></ul></div>
-</article>
-<!-- Перцовка ароматная -->
-<article class="card">
-<div class="img"><img alt="Специи в стеклянных банках" class="obj-cover" decoding="async" loading="lazy" referrerpolicy="no-referrer" sizes="(min-width:1024px) 1200px, 100vw" src="https://images.pexels.com/photos/12992303/pexels-photo-12992303.jpeg?auto=compress&amp;cs=tinysrgb" srcset="https://images.pexels.com/photos/12992303/pexels-photo-12992303.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800 800w, https://images.pexels.com/photos/12992303/pexels-photo-12992303.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w, https://images.pexels.com/photos/12992303/pexels-photo-12992303.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w"/></div>
-<div class="body">
-<div class="tag" data-i18n="infusions.aromaticPepper.tag">
+        </div>
+      </section>
+      <!-- Infusions -->
+      <section id="infusions">
+        <div class="container section-card">
+          <h2 data-i18n="infusions.title">Настойки: рецепты</h2>
+          <div class="grid cols-2">
+            <!-- Перцовка пекучая -->
+            <article class="card">
+              <div class="img">
+                <img
+                  alt="Острые красные перцы чили"
+                  class="obj-cover"
+                  decoding="async"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  sizes="(min-width:1024px) 1200px, 100vw"
+                  src="https://images.pexels.com/photos/7094360/pexels-photo-7094360.jpeg?auto=compress&amp;cs=tinysrgb"
+                  srcset="
+                    https://images.pexels.com/photos/7094360/pexels-photo-7094360.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800   800w,
+                    https://images.pexels.com/photos/7094360/pexels-photo-7094360.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w,
+                    https://images.pexels.com/photos/7094360/pexels-photo-7094360.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w
+                  "
+                />
+              </div>
+              <div class="body">
+                <div class="tag" data-i18n="infusions.hotPepper.tag">
+                  Острые пряности
+                </div>
+                <h3 data-i18n="infusions.hotPepper.name">Перцовка пекучая</h3>
+                <p data-i18n="infusions.hotPepper.desc">
+                  Яркий согревающий вкус с выраженной остротой.
+                </p>
+                <ul class="clean">
+                  <li data-i18n="infusions.hotPepper.r1">
+                    Основа: 0,5 л качественного дистиллята 40–45%.
+                  </li>
+                  <li data-i18n="infusions.hotPepper.r2">
+                    Стручок красного чили (1–2 шт), мёд 1 ст. л., чёрный перец
+                    горошком (5–7).
+                  </li>
+                  <li data-i18n="infusions.hotPepper.r3">
+                    Настаивать 3–5 дней, пробуя ежедневно. Процедить.
+                  </li>
+                </ul>
+              </div>
+            </article>
+            <!-- Перцовка ароматная -->
+            <article class="card">
+              <div class="img">
+                <img
+                  alt="Специи в стеклянных банках"
+                  class="obj-cover"
+                  decoding="async"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  sizes="(min-width:1024px) 1200px, 100vw"
+                  src="https://images.pexels.com/photos/12992303/pexels-photo-12992303.jpeg?auto=compress&amp;cs=tinysrgb"
+                  srcset="
+                    https://images.pexels.com/photos/12992303/pexels-photo-12992303.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800   800w,
+                    https://images.pexels.com/photos/12992303/pexels-photo-12992303.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w,
+                    https://images.pexels.com/photos/12992303/pexels-photo-12992303.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w
+                  "
+                />
+              </div>
+              <div class="body">
+                <div class="tag" data-i18n="infusions.aromaticPepper.tag">
                   Мягкая пряность
                 </div>
-<h3 data-i18n="infusions.aromaticPepper.name">
+                <h3 data-i18n="infusions.aromaticPepper.name">
                   Перцовка ароматная
                 </h3>
-<p data-i18n="infusions.aromaticPepper.desc">
+                <p data-i18n="infusions.aromaticPepper.desc">
                   Мягкая, пряная, с травяным акцентом.
                 </p>
-<ul class="clean">
-<li data-i18n="infusions.aromaticPepper.r1">
+                <ul class="clean">
+                  <li data-i18n="infusions.aromaticPepper.r1">
                     Основа: 0,5 л дистиллята 40%.
                   </li>
-<li data-i18n="infusions.aromaticPepper.r2">
+                  <li data-i18n="infusions.aromaticPepper.r2">
                     Сладкий перец (полоски), гвоздика 2 шт., кориандр ½ ч. л.,
                     мёд 1 ч. л.
                   </li>
-<li data-i18n="infusions.aromaticPepper.r3">
+                  <li data-i18n="infusions.aromaticPepper.r3">
                     Настаивать 5–7 дней, затем фильтровать.
                   </li>
-</ul>
-</div>
-</article>
-<!-- Бородинская -->
-<article class="card">
-<div class="img"><img alt="Ржаной хлеб, нарезанная буханка" class="obj-cover" decoding="async" loading="lazy" referrerpolicy="no-referrer" sizes="(min-width:1024px) 1200px, 100vw" src="https://images.pexels.com/photos/30675203/pexels-photo-30675203.jpeg?auto=compress&amp;cs=tinysrgb" srcset="https://images.pexels.com/photos/30675203/pexels-photo-30675203.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800 800w, https://images.pexels.com/photos/30675203/pexels-photo-30675203.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w, https://images.pexels.com/photos/30675203/pexels-photo-30675203.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w"/></div>
-<div class="body">
-<div class="tag" data-i18n="infusions.borodino.tag">
+                </ul>
+              </div>
+            </article>
+            <!-- Бородинская -->
+            <article class="card">
+              <div class="img">
+                <img
+                  alt="Ржаной хлеб, нарезанная буханка"
+                  class="obj-cover"
+                  decoding="async"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  sizes="(min-width:1024px) 1200px, 100vw"
+                  src="https://images.pexels.com/photos/30675203/pexels-photo-30675203.jpeg?auto=compress&amp;cs=tinysrgb"
+                  srcset="
+                    https://images.pexels.com/photos/30675203/pexels-photo-30675203.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800   800w,
+                    https://images.pexels.com/photos/30675203/pexels-photo-30675203.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w,
+                    https://images.pexels.com/photos/30675203/pexels-photo-30675203.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w
+                  "
+                />
+              </div>
+              <div class="body">
+                <div class="tag" data-i18n="infusions.borodino.tag">
                   Хлебные тона
                 </div>
-<h3 data-i18n="infusions.borodino.name">Бородинская</h3>
-<p data-i18n="infusions.borodino.desc">
+                <h3 data-i18n="infusions.borodino.name">Бородинская</h3>
+                <p data-i18n="infusions.borodino.desc">
                   Ржаные нотки с тмином и кориандром.
                 </p>
-<ul class="clean">
-<li data-i18n="infusions.borodino.r1">
+                <ul class="clean">
+                  <li data-i18n="infusions.borodino.r1">
                     Основа: 0,5 л дистиллята 40%.
                   </li>
-<li data-i18n="infusions.borodino.r2">
+                  <li data-i18n="infusions.borodino.r2">
                     Сухари бородинского хлеба (30–40 г), кориандр ½ ч. л., тмин
                     ½ ч. л.
                   </li>
-<li data-i18n="infusions.borodino.r3">
+                  <li data-i18n="infusions.borodino.r3">
                     Настаивать 3–4 дня, процедить, отстоять.
                   </li>
-</ul>
-</div>
-</article>
-<!-- Лимончелло -->
-<article class="card">
-<div class="img"><img alt="Лимончелло — бутылка и бокал" class="obj-cover" decoding="async" loading="lazy" referrerpolicy="no-referrer" sizes="(min-width:1024px) 1200px, 100vw" src="https://images.pexels.com/photos/21854834/pexels-photo-21854834.jpeg?auto=compress&amp;cs=tinysrgb" srcset="https://images.pexels.com/photos/21854834/pexels-photo-21854834.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800 800w, https://images.pexels.com/photos/21854834/pexels-photo-21854834.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w, https://images.pexels.com/photos/21854834/pexels-photo-21854834.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w"/></div>
-<div class="body">
-<div class="tag" data-i18n="infusions.limoncello.tag">
+                </ul>
+              </div>
+            </article>
+            <!-- Лимончелло -->
+            <article class="card">
+              <div class="img">
+                <img
+                  alt="Лимончелло — бутылка и бокал"
+                  class="obj-cover"
+                  decoding="async"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  sizes="(min-width:1024px) 1200px, 100vw"
+                  src="https://images.pexels.com/photos/21854834/pexels-photo-21854834.jpeg?auto=compress&amp;cs=tinysrgb"
+                  srcset="
+                    https://images.pexels.com/photos/21854834/pexels-photo-21854834.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800   800w,
+                    https://images.pexels.com/photos/21854834/pexels-photo-21854834.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w,
+                    https://images.pexels.com/photos/21854834/pexels-photo-21854834.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w
+                  "
+                />
+              </div>
+              <div class="body">
+                <div class="tag" data-i18n="infusions.limoncello.tag">
                   Цитрусовая классика
                 </div>
-<h3 data-i18n="infusions.limoncello.name">Лимончелло</h3>
-<p data-i18n="infusions.limoncello.desc">
+                <h3 data-i18n="infusions.limoncello.name">Лимончелло</h3>
+                <p data-i18n="infusions.limoncello.desc">
                   Итальянский ликёр с яркой цедрой.
                 </p>
-<ul class="clean">
-<li data-i18n="infusions.limoncello.r1">
+                <ul class="clean">
+                  <li data-i18n="infusions.limoncello.r1">
                     Основа: 0,7 л нейтрального дистиллята 50%.
                   </li>
-<li data-i18n="infusions.limoncello.r2">
+                  <li data-i18n="infusions.limoncello.r2">
                     Цедра 6–8 лимонов (без белой части), сироп: 400 г сахара +
                     400 мл воды.
                   </li>
-<li data-i18n="infusions.limoncello.r3">
+                  <li data-i18n="infusions.limoncello.r3">
                     Цедру настоять 7–10 дней, смешать с сиропом, охладить.
                   </li>
-</ul>
-</div>
-</article>
-</div>
-</div>
-</section>
-<!-- Moonshine -->
-<section id="moonshine">
-<div class="container section-card">
-<h2 data-i18n="moonshine.title">Самогон: основы и стили</h2>
-<p class="muted" data-i18n="moonshine.disclaimer">
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Moonshine -->
+      <section id="moonshine">
+        <div class="container section-card">
+          <h2 data-i18n="moonshine.title">Самогон: основы и стили</h2>
+          <p class="muted" data-i18n="moonshine.disclaimer">
             Внимание: в некоторых странах домашняя перегонка ограничена или
             запрещена. Соблюдайте законы вашей юрисдикции. Информация приведена
             для образовательных целей.
           </p>
-<div class="grid cols-3">
-<!-- Сахарный -->
-<article class="card">
-<div class="img"><img alt="Традиционный перегонный цех с медными кубами" class="obj-cover" decoding="async" loading="lazy" referrerpolicy="no-referrer" sizes="(min-width:1024px) 1200px, 100vw" src="https://images.pexels.com/photos/32075429/pexels-photo-32075429.jpeg?auto=compress&amp;cs=tinysrgb" srcset="https://images.pexels.com/photos/32075429/pexels-photo-32075429.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800 800w, https://images.pexels.com/photos/32075429/pexels-photo-32075429.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w, https://images.pexels.com/photos/32075429/pexels-photo-32075429.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w"/></div>
-<div class="body">
-<div class="tag" data-i18n="moonshine.sugar.tag">
+          <div class="grid cols-3">
+            <!-- Сахарный -->
+            <article class="card">
+              <div class="img">
+                <img
+                  alt="Традиционный перегонный цех с медными кубами"
+                  class="obj-cover"
+                  decoding="async"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  sizes="(min-width:1024px) 1200px, 100vw"
+                  src="https://images.pexels.com/photos/32075429/pexels-photo-32075429.jpeg?auto=compress&amp;cs=tinysrgb"
+                  srcset="
+                    https://images.pexels.com/photos/32075429/pexels-photo-32075429.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800   800w,
+                    https://images.pexels.com/photos/32075429/pexels-photo-32075429.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w,
+                    https://images.pexels.com/photos/32075429/pexels-photo-32075429.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w
+                  "
+                />
+              </div>
+              <div class="body">
+                <div class="tag" data-i18n="moonshine.sugar.tag">
                   Базовый стиль
                 </div>
-<h3 data-i18n="moonshine.sugar.name">Сахарный</h3>
-<ul class="clean">
-<li data-i18n="moonshine.sugar.r1">
+                <h3 data-i18n="moonshine.sugar.name">Сахарный</h3>
+                <ul class="clean">
+                  <li data-i18n="moonshine.sugar.r1">
                     Сусло: вода, сахар, дрожжи (спиртовые/хлебопекарные).
                   </li>
-<li data-i18n="moonshine.sugar.r2">
+                  <li data-i18n="moonshine.sugar.r2">
                     Брожение 5–10 дней при 20–26°C, затем двойная перегонка.
                   </li>
-<li data-i18n="moonshine.sugar.r3">
+                  <li data-i18n="moonshine.sugar.r3">
                     Отбор «голов» и «хвостов», угольная фильтрация по желанию.
                   </li>
-</ul>
-</div>
-</article>
-<!-- Чача -->
-<article class="card">
-<div class="img"><img alt="Гроздья винограда на лозе" class="obj-cover" decoding="async" loading="lazy" referrerpolicy="no-referrer" sizes="(min-width:1024px) 1200px, 100vw" src="https://images.pexels.com/photos/4953700/pexels-photo-4953700.jpeg?auto=compress&amp;cs=tinysrgb" srcset="https://images.pexels.com/photos/4953700/pexels-photo-4953700.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800 800w, https://images.pexels.com/photos/4953700/pexels-photo-4953700.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w, https://images.pexels.com/photos/4953700/pexels-photo-4953700.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w"/></div>
-<div class="body">
-<div class="tag" data-i18n="moonshine.chacha.tag">
+                </ul>
+              </div>
+            </article>
+            <!-- Чача -->
+            <article class="card">
+              <div class="img">
+                <img
+                  alt="Гроздья винограда на лозе"
+                  class="obj-cover"
+                  decoding="async"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  sizes="(min-width:1024px) 1200px, 100vw"
+                  src="https://images.pexels.com/photos/4953700/pexels-photo-4953700.jpeg?auto=compress&amp;cs=tinysrgb"
+                  srcset="
+                    https://images.pexels.com/photos/4953700/pexels-photo-4953700.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800   800w,
+                    https://images.pexels.com/photos/4953700/pexels-photo-4953700.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w,
+                    https://images.pexels.com/photos/4953700/pexels-photo-4953700.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w
+                  "
+                />
+              </div>
+              <div class="body">
+                <div class="tag" data-i18n="moonshine.chacha.tag">
                   Виноградная выжимка
                 </div>
-<h3 data-i18n="moonshine.chacha.name">Чача</h3>
-<ul class="clean">
-<li data-i18n="moonshine.chacha.r1">
+                <h3 data-i18n="moonshine.chacha.name">Чача</h3>
+                <ul class="clean">
+                  <li data-i18n="moonshine.chacha.r1">
                     Сусло: виноградная мезга/выжимка, вода, сахар по
                     необходимости.
                   </li>
-<li data-i18n="moonshine.chacha.r2">
+                  <li data-i18n="moonshine.chacha.r2">
                     Брожение 10–20 дней, перегонка с ароматным хвостом.
                   </li>
-<li data-i18n="moonshine.chacha.r3">
+                  <li data-i18n="moonshine.chacha.r3">
                     Выдержка на дубе для смягчения и аромата.
                   </li>
-</ul>
-</div>
-</article>
-<!-- Фруктовый -->
-<article class="card">
-<div class="img"><img alt="Яблоки в деревянных ящиках" class="obj-cover" decoding="async" loading="lazy" referrerpolicy="no-referrer" sizes="(min-width:1024px) 1200px, 100vw" src="https://images.pexels.com/photos/2949140/pexels-photo-2949140.jpeg?auto=compress&amp;cs=tinysrgb" srcset="https://images.pexels.com/photos/2949140/pexels-photo-2949140.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800 800w, https://images.pexels.com/photos/2949140/pexels-photo-2949140.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w, https://images.pexels.com/photos/2949140/pexels-photo-2949140.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w"/></div>
-<div class="body">
-<div class="tag" data-i18n="moonshine.fruit.tag">
+                </ul>
+              </div>
+            </article>
+            <!-- Фруктовый -->
+            <article class="card">
+              <div class="img">
+                <img
+                  alt="Яблоки в деревянных ящиках"
+                  class="obj-cover"
+                  decoding="async"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  sizes="(min-width:1024px) 1200px, 100vw"
+                  src="https://images.pexels.com/photos/2949140/pexels-photo-2949140.jpeg?auto=compress&amp;cs=tinysrgb"
+                  srcset="
+                    https://images.pexels.com/photos/2949140/pexels-photo-2949140.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800   800w,
+                    https://images.pexels.com/photos/2949140/pexels-photo-2949140.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w,
+                    https://images.pexels.com/photos/2949140/pexels-photo-2949140.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w
+                  "
+                />
+              </div>
+              <div class="body">
+                <div class="tag" data-i18n="moonshine.fruit.tag">
                   Натуральный аромат
                 </div>
-<h3 data-i18n="moonshine.fruit.name">Фруктовый</h3>
-<ul class="clean">
-<li data-i18n="moonshine.fruit.r1">
+                <h3 data-i18n="moonshine.fruit.name">Фруктовый</h3>
+                <ul class="clean">
+                  <li data-i18n="moonshine.fruit.r1">
                     Сусло: яблоки/груши/сливы, сахар по кислотности, винные
                     дрожжи.
                   </li>
-<li data-i18n="moonshine.fruit.r2">
+                  <li data-i18n="moonshine.fruit.r2">
                     Медленное брожение при 18–22°C, бережная перегонка.
                   </li>
-<li data-i18n="moonshine.fruit.r3">
+                  <li data-i18n="moonshine.fruit.r3">
                     Выдержка/настоение на фруктах для усиления букета.
                   </li>
-</ul>
-</div>
-</article>
-</div>
-</div>
-</section>
-<!-- Quotes -->
-<section id="quotes">
-<div class="container section-card">
-<h2 data-i18n="quotes.title">Крылатые фразы</h2>
-<div class="grid cols-2">
-<article class="card">
-<div class="img"><img alt="Тост — поднятые бокалы с шампанским" class="obj-cover" decoding="async" loading="lazy" referrerpolicy="no-referrer" sizes="(min-width:1024px) 1200px, 100vw" src="https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600"/></div>
-<div class="body">
-<p>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Quotes -->
+      <section id="quotes">
+        <div class="container section-card">
+          <h2 data-i18n="quotes.title">Крылатые фразы</h2>
+          <div class="grid cols-2">
+            <article class="card">
+              <div class="img">
+                <img
+                  alt="Тост — поднятые бокалы с шампанским"
+                  class="obj-cover"
+                  decoding="async"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  sizes="(min-width:1024px) 1200px, 100vw"
+                  src="https://images.pexels.com/photos/3171837/pexels-photo-3171837.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600"
+                />
+              </div>
+              <div class="body">
+                <p>
                   «<span data-i18n="quotes.q1">Истина — в вине.</span>»
-                  <span class="muted" data-i18n="quotes.q1a">— латинское изречение</span>
-</p>
-<p>
-                  «<span data-i18n="quotes.q2">Вино — постоянное доказательство того, что Бог любит нас и
-                    хочет, чтобы мы были счастливы.</span>»
-                  <span class="muted">—
-                    <span data-i18n="quotes.q2a">приписывается Б. Франклину</span></span>
-</p>
-</div>
-</article>
-<article class="card">
-<div class="img"><img alt="Тост — бокалы с шампанским" class="obj-cover" decoding="async" loading="lazy" referrerpolicy="no-referrer" sizes="(min-width:1024px) 1200px, 100vw" src="https://images.pexels.com/photos/15028501/pexels-photo-15028501.jpeg?auto=compress&amp;cs=tinysrgb" srcset="https://images.pexels.com/photos/15028501/pexels-photo-15028501.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800 800w, https://images.pexels.com/photos/15028501/pexels-photo-15028501.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w, https://images.pexels.com/photos/15028501/pexels-photo-15028501.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w"/></div>
-<div class="body">
-<p>
-                  «<span data-i18n="quotes.q3">Где хорошая беседа, там и хороший напиток.</span>»
-                  <span class="muted" data-i18n="quotes.q3a">— из бытовой мудрости</span>
-</p>
-<p>
-                  «<span data-i18n="quotes.q4">Всему есть мера — и в силе, и во вкусе.</span>»
-                  <span class="muted" data-i18n="quotes.q4a">— принцип ответственного наслаждения</span>
-</p>
-</div>
-</article>
-</div>
-</div>
-</section>
-<!-- Facts -->
-<section id="facts">
-<div class="container section-card">
-<h2 data-i18n="facts.title">Интересные факты</h2>
-<div class="grid cols-2">
-<article class="card">
-<div class="img"><img alt="Медный перегонный куб" class="obj-cover" decoding="async" loading="lazy" referrerpolicy="no-referrer" sizes="(min-width:1024px) 1200px, 100vw" src="https://images.pexels.com/photos/32075429/pexels-photo-32075429.jpeg?auto=compress&amp;cs=tinysrgb" srcset="https://images.pexels.com/photos/32075429/pexels-photo-32075429.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800 800w, https://images.pexels.com/photos/32075429/pexels-photo-32075429.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w, https://images.pexels.com/photos/32075429/pexels-photo-32075429.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w"/></div>
-<div class="body">
-<ul class="clean">
-<li data-i18n="facts.f1">
+                  <span class="muted" data-i18n="quotes.q1a"
+                    >— латинское изречение</span
+                  >
+                </p>
+                <p>
+                  «<span data-i18n="quotes.q2"
+                    >Вино — постоянное доказательство того, что Бог любит нас и
+                    хочет, чтобы мы были счастливы.</span
+                  >»
+                  <span class="muted"
+                    >—
+                    <span data-i18n="quotes.q2a"
+                      >приписывается Б. Франклину</span
+                    ></span
+                  >
+                </p>
+              </div>
+            </article>
+            <article class="card">
+              <div class="img">
+                <img
+                  alt="Тост — бокалы с шампанским"
+                  class="obj-cover"
+                  decoding="async"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  sizes="(min-width:1024px) 1200px, 100vw"
+                  src="https://images.pexels.com/photos/15028501/pexels-photo-15028501.jpeg?auto=compress&amp;cs=tinysrgb"
+                  srcset="
+                    https://images.pexels.com/photos/15028501/pexels-photo-15028501.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800   800w,
+                    https://images.pexels.com/photos/15028501/pexels-photo-15028501.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w,
+                    https://images.pexels.com/photos/15028501/pexels-photo-15028501.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w
+                  "
+                />
+              </div>
+              <div class="body">
+                <p>
+                  «<span data-i18n="quotes.q3"
+                    >Где хорошая беседа, там и хороший напиток.</span
+                  >»
+                  <span class="muted" data-i18n="quotes.q3a"
+                    >— из бытовой мудрости</span
+                  >
+                </p>
+                <p>
+                  «<span data-i18n="quotes.q4"
+                    >Всему есть мера — и в силе, и во вкусе.</span
+                  >»
+                  <span class="muted" data-i18n="quotes.q4a"
+                    >— принцип ответственного наслаждения</span
+                  >
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- Facts -->
+      <section id="facts">
+        <div class="container section-card">
+          <h2 data-i18n="facts.title">Интересные факты</h2>
+          <div class="grid cols-2">
+            <article class="card">
+              <div class="img">
+                <img
+                  alt="Медный перегонный куб"
+                  class="obj-cover"
+                  decoding="async"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  sizes="(min-width:1024px) 1200px, 100vw"
+                  src="https://images.pexels.com/photos/32075429/pexels-photo-32075429.jpeg?auto=compress&amp;cs=tinysrgb"
+                  srcset="
+                    https://images.pexels.com/photos/32075429/pexels-photo-32075429.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800   800w,
+                    https://images.pexels.com/photos/32075429/pexels-photo-32075429.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w,
+                    https://images.pexels.com/photos/32075429/pexels-photo-32075429.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w
+                  "
+                />
+              </div>
+              <div class="body">
+                <ul class="clean">
+                  <li data-i18n="facts.f1">
                     Травяные настойки исторически использовались как часть
                     аптекарских практик в Европе.
                   </li>
-<li data-i18n="facts.f2">
+                  <li data-i18n="facts.f2">
                     Домашние настои на ягодах и фруктах были способом сберечь
                     урожай и получить ароматные напитки.
                   </li>
-<li data-i18n="facts.f3">
+                  <li data-i18n="facts.f3">
                     Дегустация — это язык: цвет, аромат, вкус и послевкусие
                     помогают описывать впечатления и делиться ими.
                   </li>
-</ul>
-</div>
-</article>
-<article class="card">
-<div class="img"><img alt="Виски в роксе со льдом" class="obj-cover" decoding="async" loading="lazy" referrerpolicy="no-referrer" sizes="(min-width:1024px) 1200px, 100vw" src="https://images.pexels.com/photos/28576097/pexels-photo-28576097.jpeg?auto=compress&amp;cs=tinysrgb" srcset="https://images.pexels.com/photos/28576097/pexels-photo-28576097.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800 800w, https://images.pexels.com/photos/28576097/pexels-photo-28576097.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w, https://images.pexels.com/photos/28576097/pexels-photo-28576097.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w"/></div>
-<div class="body">
-<ul class="clean">
-<li data-i18n="facts.f4">
+                </ul>
+              </div>
+            </article>
+            <article class="card">
+              <div class="img">
+                <img
+                  alt="Виски в роксе со льдом"
+                  class="obj-cover"
+                  decoding="async"
+                  loading="lazy"
+                  referrerpolicy="no-referrer"
+                  sizes="(min-width:1024px) 1200px, 100vw"
+                  src="https://images.pexels.com/photos/28576097/pexels-photo-28576097.jpeg?auto=compress&amp;cs=tinysrgb"
+                  srcset="
+                    https://images.pexels.com/photos/28576097/pexels-photo-28576097.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800   800w,
+                    https://images.pexels.com/photos/28576097/pexels-photo-28576097.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200 1200w,
+                    https://images.pexels.com/photos/28576097/pexels-photo-28576097.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600 1600w
+                  "
+                />
+              </div>
+              <div class="body">
+                <ul class="clean">
+                  <li data-i18n="facts.f4">
                     Техника двойной перегонки позволяет получить более чистый и
                     сбалансированный дистиллят.
                   </li>
-<li data-i18n="facts.f5">
+                  <li data-i18n="facts.f5">
                     В разных регионах сложились свои стили: фруктовые бренди,
                     зерновые дистилляты, настойки на травах.
                   </li>
-<li data-i18n="facts.f6">
+                  <li data-i18n="facts.f6">
                     Умеренность — ключ к раскрытию букета и радости общения.
                   </li>
-</ul>
-</div>
-</article>
-</div>
-</div>
-</section>
-</main>
-<footer class="site-footer">
-<div class="container footer-inner">
-<div class="footer-left">
-<div class="age-badge">21+</div>
-<span class="sep">•</span>
-<div data-i18n="footer.warn">
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Signup Section -->
+    <section id="signup">
+      <div class="container section-card">
+        <h2 data-i18n="signup.title">Записаться на мероприятие</h2>
+        <p class="muted" data-i18n="signup.subtitle">
+          Присоединяйтесь к нашим семинарам, дегустациям и мастер-классам по
+          культуре напитков
+        </p>
+
+        <form id="signupForm" class="signup-form">
+          <div class="grid cols-2">
+            <div class="form-group">
+              <label for="firstName" data-i18n="signup.firstName">Имя *</label>
+              <input type="text" id="firstName" name="firstName" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName" data-i18n="signup.lastName">Фамилия</label>
+              <input type="text" id="lastName" name="lastName" />
+            </div>
+          </div>
+
+          <div class="grid cols-2">
+            <div class="form-group">
+              <label for="email" data-i18n="signup.email">Email *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="phone" data-i18n="signup.phone">Телефон</label>
+              <input type="tel" id="phone" name="phone" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="eventType" data-i18n="signup.eventType"
+              >Тип мероприятия *</label
+            >
+            <select id="eventType" name="eventType" required>
+              <option value="" data-i18n="signup.selectOption">
+                Выберите мероприятие
+              </option>
+              <option value="seminar" data-i18n="signup.seminar">
+                Семинар по культуре напитков
+              </option>
+              <option value="tasting" data-i18n="signup.tasting">
+                Дегустационная встреча
+              </option>
+              <option value="workshop" data-i18n="signup.workshop">
+                Мастер-класс по настойкам
+              </option>
+              <option value="distillation" data-i18n="signup.distillation">
+                Мастер-класс по самогоноварению
+              </option>
+              <option value="consultation" data-i18n="signup.consultation">
+                Индивидуальная консультация
+              </option>
+              <option value="other" data-i18n="signup.other">Другое</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="participants" data-i18n="signup.participants"
+              >Количество участников</label
+            >
+            <select id="participants" name="participants">
+              <option value="1" data-i18n="signup.participants1">
+                1 человек
+              </option>
+              <option value="2" data-i18n="signup.participants2">
+                2 человека
+              </option>
+              <option value="3" data-i18n="signup.participants3">
+                3 человека
+              </option>
+              <option value="4" data-i18n="signup.participants4">
+                4 человека
+              </option>
+              <option value="5+" data-i18n="signup.participants5">
+                5+ человек
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message" data-i18n="signup.message">Сообщение</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Расскажите о ваших интересах или задайте вопросы..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="newsletter" name="newsletter" />
+              <span data-i18n="signup.newsletter"
+                >Хочу получать новости о мероприятиях</span
+              >
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="privacy" name="privacy" required />
+              <span data-i18n="signup.privacy">
+                Я согласен с
+                <a href="#privacy" data-i18n="signup.privacyLink"
+                  >политикой конфиденциальности</a
+                >
+                *
+              </span>
+            </label>
+          </div>
+
+          <div class="form-submit">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              data-i18n="signup.submit"
+            >
+              Отправить заявку
+            </button>
+          </div>
+        </form>
+
+        <div id="formMessage" class="form-message" style="display: none"></div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-left">
+          <div class="age-badge">21+</div>
+          <span class="sep">•</span>
+          <div data-i18n="footer.warn">
             Чрезмерное употребление алкоголя вредит вашему здоровью
           </div>
-<span class="sep">•</span>
-<div data-i18n="footer.edu">
+          <span class="sep">•</span>
+          <div data-i18n="footer.edu">
             Образовательный проект. Не для продвижения продажи алкоголя.
           </div>
-</div>
-<div class="contacts">
-<div>Email: hello@distillandtaste.example</div>
-<div data-i18n="footer.contact">
+        </div>
+        <div class="contacts">
+          <div>Email: hello@distillandtaste.example</div>
+          <div data-i18n="footer.contact">
             По вопросам сотрудничества и дегустаций — пишите.
           </div>
-</div>
-</div>
-</footer>
-<script>
+        </div>
+      </div>
+    </footer>
+    <script>
       // Smooth scroll
       document.querySelectorAll("nav.menu a").forEach((a) => {
         a.addEventListener("click", (e) => {
@@ -716,9 +1189,10 @@
             pill1: "Образовательный контент",
             pill2: "Ответственно и законно",
             pill3: "Рецепты и дегустации",
-            extra: "Мы также организуем семинары, дегустационные встречи и выездные мастер-классы для тех, кто хочет глубже познакомиться с культурой напитков.",
+            extra:
+              "Мы также организуем семинары, дегустационные встречи и выездные мастер-классы для тех, кто хочет глубже познакомиться с культурой напитков.",
             cta: "Записаться",
-          
+
             hotPepper: {
               tag: "Острые пряности",
               name: "Перцовка пекучая",
@@ -816,6 +1290,41 @@
             f5: "В разных регионах сложились свои стили: фруктовые бренди, зерновые дистилляты, настойки на травах.",
             f6: "Умеренность — ключ к раскрытию букета и радости общения.",
           },
+          signup: {
+            title: "Записаться на мероприятие",
+            subtitle:
+              "Присоединяйтесь к нашим семинарам, дегустациям и мастер-классам по культуре напитков",
+            firstName: "Имя *",
+            lastName: "Фамилия",
+            email: "Email *",
+            phone: "Телефон",
+            eventType: "Тип мероприятия *",
+            selectOption: "Выберите мероприятие",
+            seminar: "Семинар по культуре напитков",
+            tasting: "Дегустационная встреча",
+            workshop: "Мастер-класс по настойкам",
+            distillation: "Мастер-класс по самогоноварению",
+            consultation: "Индивидуальная консультация",
+            other: "Другое",
+            participants: "Количество участников",
+            participants1: "1 человек",
+            participants2: "2 человека",
+            participants3: "3 человека",
+            participants4: "4 человека",
+            participants5: "5+ человек",
+            message: "Сообщение",
+            newsletter: "Хочу получать новости о мероприятиях",
+            privacy: "Я согласен с ",
+            privacyLink: "политикой конфиденциальности",
+            submit: "Отправить заявку",
+            success:
+              "Спасибо! Ваша заявка успешно отправлена. Мы свяжемся с вами в течение 24 часов.",
+            error:
+              "Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже или свяжитесь с нами напрямую.",
+            required: "Это поле обязательно для заполнения",
+            invalidEmail: "Пожалуйста, введите корректный email",
+            sending: "Отправка...",
+          },
           footer: {
             warn: "Чрезмерное употребление алкоголя вредит вашему здоровью",
             edu: "Образовательный проект. Не для продвижения продажи алкоголя.",
@@ -836,9 +1345,10 @@
             pill1: "Izglītojošs saturs",
             pill2: "Atbildīgi un likumīgi",
             pill3: "Receptes un degustācijas",
-            extra: "Mēs arī organizējam seminārus, degustācijas tikšanās un izbraukuma meistarklases tiem, kuri vēlas dziļāk iepazīt dzērienu kultūru.",
+            extra:
+              "Mēs arī organizējam seminārus, degustācijas tikšanās un izbraukuma meistarklases tiem, kuri vēlas dziļāk iepazīt dzērienu kultūru.",
             cta: "Pieteikties",
-          
+
             hotPepper: {
               tag: "Asas garšvielas",
               name: "Pikantais piparu uzlējums",
@@ -936,6 +1446,41 @@
             f5: "Dažādos reģionos izveidojušies savi stili: augļu brendiji, graudu destilāti, zāļu uzlējumi.",
             f6: "Mērenība ir atslēga bouquet atklāšanai un sarunu priekam.",
           },
+          signup: {
+            title: "Pieteikties pasākumam",
+            subtitle:
+              "Pievienojieties mūsu semināriem, degustācijām un meistarklasēm par dzērienu kultūru",
+            firstName: "Vārds *",
+            lastName: "Uzvārds",
+            email: "E-pasts *",
+            phone: "Tālrunis",
+            eventType: "Pasākuma veids *",
+            selectOption: "Izvēlieties pasākumu",
+            seminar: "Seminārs par dzērienu kultūru",
+            tasting: "Degustācijas tikšanās",
+            workshop: "Meistarklase par uzlējumiem",
+            distillation: "Meistarklase par mājbrūvēšanu",
+            consultation: "Individuāla konsultācija",
+            other: "Cits",
+            participants: "Dalībnieku skaits",
+            participants1: "1 persona",
+            participants2: "2 personas",
+            participants3: "3 personas",
+            participants4: "4 personas",
+            participants5: "5+ personas",
+            message: "Ziņojums",
+            newsletter: "Vēlos saņemt jaunumus par pasākumiem",
+            privacy: "Es piekrītu ",
+            privacyLink: "privātuma politikai",
+            submit: "Nosūtīt pieteikumu",
+            success:
+              "Paldies! Jūsu pieteikums ir veiksmīgi nosūtīts. Mēs sazināsimies ar jums 24 stundu laikā.",
+            error:
+              "Notika kļūda, nosūtot pieteikumu. Lūdzu, mēģiniet vēlāk vai sazinieties ar mums tieši.",
+            required: "Šis lauks ir obligāts",
+            invalidEmail: "Lūdzu, ievadiet derīgu e-pasta adresi",
+            sending: "Nosūta...",
+          },
           footer: {
             warn: "Alkohola pārmērīga lietošana kaitē jūsu veselībai",
             edu: "Izglītojošs projekts. Ne veicina alkohola pārdošanu.",
@@ -968,30 +1513,157 @@
       );
       setLang(localStorage.getItem("lang") || "ru");
     </script>
-<script>
-(function(){
-  function ensureImage(el){
-    if(!el) return;
-    var swapped = false;
-    function swap(){
-      if(swapped) return;
-      swapped = true;
-      var fb = el.getAttribute('data-fallback');
-      if(fb){ el.src = fb; }
-    }
-    // If already broken, swap right away
-    el.addEventListener('error', swap, { once:true });
-    // Timeout if not loaded with natural size
-    setTimeout(function(){
-      if(!el.complete || !el.naturalWidth){
-        swap();
-      }
-    }, 2500);
-  }
-  document.addEventListener('DOMContentLoaded', function(){
-    document.querySelectorAll('img[data-fallback]').forEach(ensureImage);
-  });
-})();
-</script>
-</body>
+    <script>
+      // Form handling and validation
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("signupForm");
+        const messageDiv = document.getElementById("formMessage");
+        const submitBtn = form.querySelector('button[type="submit"]');
+
+        if (!form) return;
+
+        // Form validation
+        function validateForm() {
+          let isValid = true;
+          const requiredFields = form.querySelectorAll("[required]");
+          const emailField = form.querySelector('input[type="email"]');
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+          // Check required fields
+          requiredFields.forEach((field) => {
+            if (!field.value.trim()) {
+              field.style.borderColor = "#e74c3c";
+              isValid = false;
+            } else {
+              field.style.borderColor = "var(--brand)";
+            }
+          });
+
+          // Check email format
+          if (
+            emailField &&
+            emailField.value &&
+            !emailRegex.test(emailField.value)
+          ) {
+            emailField.style.borderColor = "#e74c3c";
+            showMessage(
+              dict[document.documentElement.lang === "lv" ? "lv" : "ru"].signup
+                .invalidEmail,
+              "error"
+            );
+            isValid = false;
+          }
+
+          return isValid;
+        }
+
+        // Show message
+        function showMessage(message, type = "info") {
+          messageDiv.textContent = message;
+          messageDiv.className = `form-message ${type}`;
+          messageDiv.style.display = "block";
+
+          // Auto-hide after 5 seconds
+          setTimeout(() => {
+            messageDiv.style.display = "none";
+          }, 5000);
+        }
+
+        // Handle form submission
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          if (!validateForm()) {
+            showMessage(
+              dict[document.documentElement.lang === "lv" ? "lv" : "ru"].signup
+                .required,
+              "error"
+            );
+            return;
+          }
+
+          // Show loading state
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent =
+            dict[
+              document.documentElement.lang === "lv" ? "lv" : "ru"
+            ].signup.sending;
+          submitBtn.disabled = true;
+
+          try {
+            // Simulate form submission (replace with actual endpoint)
+            await new Promise((resolve) => setTimeout(resolve, 1500));
+
+            // For demo purposes, always show success
+            showMessage(
+              dict[document.documentElement.lang === "lv" ? "lv" : "ru"].signup
+                .success,
+              "success"
+            );
+            form.reset();
+          } catch (error) {
+            console.error("Form submission error:", error);
+            showMessage(
+              dict[document.documentElement.lang === "lv" ? "lv" : "ru"].signup
+                .error,
+              "error"
+            );
+          } finally {
+            // Restore button state
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          }
+        });
+
+        // Real-time validation
+        form.addEventListener("input", function (e) {
+          const field = e.target;
+          if (field.hasAttribute("required") && field.value.trim()) {
+            field.style.borderColor = "var(--brand)";
+          }
+        });
+
+        // Privacy policy link handling
+        const privacyLinks = form.querySelectorAll('a[href="#privacy"]');
+        privacyLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            // You can implement a modal or scroll to privacy section here
+            showMessage(
+              "Политика конфиденциальности будет доступна в ближайшее время.",
+              "info"
+            );
+          });
+        });
+      });
+    </script>
+
+    <script>
+      (function () {
+        function ensureImage(el) {
+          if (!el) return;
+          var swapped = false;
+          function swap() {
+            if (swapped) return;
+            swapped = true;
+            var fb = el.getAttribute("data-fallback");
+            if (fb) {
+              el.src = fb;
+            }
+          }
+          // If already broken, swap right away
+          el.addEventListener("error", swap, { once: true });
+          // Timeout if not loaded with natural size
+          setTimeout(function () {
+            if (!el.complete || !el.naturalWidth) {
+              swap();
+            }
+          }, 2500);
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+          document.querySelectorAll("img[data-fallback]").forEach(ensureImage);
+        });
+      })();
+    </script>
+  </body>
 </html>
